@@ -30,9 +30,16 @@
                     <h1>NuCamp</h1>
                     <h2>a better way to camp</h2>
                 </div>
-                <!-- <div class="col-xl-2 col-md-4 mt-4">       DONT KNOW HOW TO LINK IT TO THE FORM -> index.html
-                <a class="btn btn-info btn-lg" href="home/id:#reserveForm">Reserve Campsite</a>
-                </div> -->
+                <div class="col-xl-2 col-md-4 mt-4">
+                <a class="btn btn-info btn-lg" role="button" href="index.html#reserveForm" 
+                data-toggle="tooltip" data-placement="bottom" data-html="true" title="Or call us at <br/> <b> 1-206-555-1234 </b>">
+                Reserve Campsite</a>
+                </div>
+                <!-- 
+                    -toggle="tooltip" enables the tooltip (on hover a text appears)
+                    -placement="bottom" defines the side on which it appears
+                    -html="true" enables html-code inside of the title
+                -->
             </div>
         </div>
     </header>
@@ -219,6 +226,13 @@
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- this designes and enables the tooltip on the #reserveForm-CTA -->
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
 
 </body>
 
