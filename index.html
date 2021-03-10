@@ -109,56 +109,61 @@
         </div>
     </div>
 
-<!-- reserve Modal-->
-<div id="reserveModal" class="modal fade" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header bg-info text-white">                    
-                <h3 class="modal-title ">Reserve Campsite</h3>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="container-fluid">
-                    <form>
-                        <div class="row form-group">
-                            <label class="col-xs col-sm-6 col-form-label" for="camper-nr">Number of Campers</label>
-                            <div class="col-xs col-sm-6 ">
-                                <select class="form-control" name="camper-nr" id="camper-nr">
-                                    <option>Select...</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                </select>
+    <!-- reserve Modal-->
+    <div id="reserveModal" class="modal fade" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-info text-white">                    
+                    <h3 class="modal-title ">Reserve Campsite</h3>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form>
+                            <div class="row form-group">
+                                <label class="col-xs col-sm-6 col-form-label" for="camper-nr">Number of Campers</label>
+                                <div class="col-xs col-sm-6 ">
+                                    <select class="form-control" name="camper-nr" id="camper-nr">
+                                        <option>Select...</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row form-group">
-                                <label class="col-xs col-sm-6 col-form-label" for="date">Date</label>
-                            <div class="col-xs col-sm-6">
-                                <input class="form-control" type="date" id="date" name="date" placeholder="enter your arrival date">
-                            </div>                                
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-6 col-form-label">Campsite Type</label>
-                            <div class="col-2 btn-group btn-group-toggle" data-toggle="buttons">
-                                <button type="button" class="btn-success" name="siteType" id="siteTent">Tent</button>
-                                <button type="button" class="btn-primary" name="siteType" id="siteRV">RV</button>
+                            <div class="row form-group">
+                                    <label class="col-xs col-sm-6 col-form-label" for="date">Date</label>
+                                <div class="col-xs col-sm-6">
+                                    <input class="form-control" type="date" id="date" name="date" placeholder="enter your arrival date">
+                                </div>                                
                             </div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col">
-                                <button type="button" class="btn btn-secondary ml-auto" data-dismiss="modal">Cancel</button>
-                                <button class="btn btn-primary" type="submit" >Search</button>
+                            <div class="form-group row">
+                                <label class="col-md-6 col-form-label">Campsite Type</label>
+                                <div class="col-2 btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-success">
+                                        <input type="radio" class=" btn-success" name="siteType" id="siteTent" > Tent
+                                    </label>
+                                    <label class="btn btn-primary">
+                                        <span><input type="radio" class=" btn-primary" name="siteType" id="siteRV" > RV
+                                    </label>
+
+                                </div>
+                            </div>button
+                            <div class="row form-group">
+                                <div class="col">
+                                    <button type="button" class="btn btn-secondary ml-auto" data-dismiss="modal">Cancel</button>
+                                    <button class="btn btn-primary" type="submit" >Search</button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
     <main class="container">
             <!-- the carousel only with the bootstrap components .active is required because it is the first slide to be seen-->
@@ -196,8 +201,8 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Browser controls are overlapping on the right side -->
-                        <a class="carousel-control-next" href="#homeCarousel" role="button" data-slide="prev">
+                    <!-- Browser controls are overlapping on the right side solved-->
+                        <a class="carousel-control-prev" href="#homeCarousel" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" ></span>
                             <span class="sr-only">Previous</span>
                         </a>
@@ -205,7 +210,21 @@
                             <span class="carousel-control-next-icon" ></span>
                             <span class="sr-only">Next</span>            
                         </a>
-                </div>
+
+                        <button class="btn btn-danger btn-sm" id="carouselButton">
+                            <i class="fa fa-pause"></i>
+                        </button>
+
+                    <!-- PLAY / PAUSE BUTTON 
+                        <div class="btn-group" id="carouselButton">
+                        <button class="btn btn-danger btn-sm" id="carouselPause">
+                            <i class="fa fa-pause"></i>
+                        </button>
+                        <button class="btn btn-danger btn-sm" id="carouselPlay">
+                            <i class="fa fa-play"></i>
+                        </button>
+                    </div> -->
+
             </div>
         </div>
 
@@ -325,7 +344,20 @@
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <script>
-
+        $(function() {
+            $(".carousel").carousel( { interval:2000 });
+            $("#carouselButton").click(function() {
+                if ($("#carouselButton").children("i").hasClass("fa-pause")){
+                    $(".carousel").carousel("pause");
+                    $("#carouselButton").children("i").removeClass("fa-pause");
+                    $("#carouselButton").children("i").addClass("fa-play");
+                } else {
+                    $(".carousel").carousel("cycle");
+                    $("#carouselButton").children("i").removeClass("fa-play");
+                    $("#carouselButton").children("i").addClass("fa-pause"); 
+                }
+            });
+        });
     </script>
 
 </body>
