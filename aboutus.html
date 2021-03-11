@@ -5,13 +5,15 @@
     <!-- Required meta tags always come first -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
 
-    <!-- Additional CSS must be placed after Bootstrap CSS -->
+
+    <!-- build:css css/main.css -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- endbuild -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans" />
     <title>NuCamp: A Better Way To Camp</title>
 </head>
 
@@ -131,6 +133,63 @@ What I did wrong trying on my own:
             </div>
         </div>
     </div>
+
+    <!-- reserve Modal-->
+    <div id="reserveModal" class="modal fade" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-info text-white">                    
+                    <h3 class="modal-title ">Reserve Campsite</h3>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form>
+                            <div class="row form-group">
+                                <label class="col-xs col-sm-6 col-form-label" for="camper-nr">Number of Campers</label>
+                                <div class="col-xs col-sm-6 ">
+                                    <select class="form-control" name="camper-nr" id="camper-nr">
+                                        <option>Select...</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                    <label class="col-xs col-sm-6 col-form-label" for="date">Date</label>
+                                <div class="col-xs col-sm-6">
+                                    <input class="form-control" type="date" id="date" name="date" placeholder="enter your arrival date">
+                                </div>                                
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-6 col-form-label">Campsite Type</label>
+                                <div class="col-2 btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-success">
+                                        <input type="radio" class=" btn-success" name="siteType" id="siteTent" > Tent
+                                    </label>
+                                    <label class="btn btn-primary">
+                                        <span><input type="radio" class=" btn-primary" name="siteType" id="siteRV" > RV
+                                    </label>
+
+                                </div>
+                            </div>button
+                            <div class="row form-group">
+                                <div class="col">
+                                    <button type="button" class="btn btn-secondary ml-auto" data-dismiss="modal">Cancel</button>
+                                    <button class="btn btn-primary" type="submit" >Search</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <main class="container">
         <div class="container">
         <div class="row">
@@ -345,10 +404,12 @@ What I did wrong trying on my own:
         </div>
     </footer>
 
+    <!-- build:js js/main.js -->
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
+    <script src="js/scripts.js"></script>
+    <!-- endbuild -->
     <script>
         $(function () {
             $('[data-toggle="tooltip"]').tooltip()
